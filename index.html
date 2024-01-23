@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
-<body>
-</body>
-<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script>
-</script>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script>
+    const root = document.getElementById("root")
+    const rootInstance = ReactDOM.createRoot(root);
+
+    const span = React.createElement("span", {id:"sexy-span", style : {color:"red"}}, "Hello I'm a span");
+
+    rootInstance.render(span);
+  </script>
 </html>
