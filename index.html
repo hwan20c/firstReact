@@ -9,8 +9,17 @@
     const root = document.getElementById("root")
     const rootInstance = ReactDOM.createRoot(root);
 
-    const span = React.createElement("span", {id:"sexy-span", style : {color:"red"}}, "Hello I'm a span");
+    const h3 = React.createElement("h3", {id: "title", 
+      onMouseEnter: () => console.log("mouse enter"),
+    }, "Hello I'm a span");
 
-    rootInstance.render(span);
+    const btn = React.createElement("button", {
+      onClick: () => console.log("i'm clicked"), style : {
+        backgroundColor : "tomato",
+      },
+    }, "Click me");
+
+    const contatiner = React.createElement("div", null, [h3, btn])
+    rootInstance.render(contatiner);
   </script>
 </html>
