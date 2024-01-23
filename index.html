@@ -9,18 +9,27 @@
   <script type="text/babel">
     const root = document.getElementById("root")
     const rootInstance = ReactDOM.createRoot(root);
-    const Title = (
-      <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
-        Hello I'm a title
-      </h3>
-    );
 
-    const Button = (
+    function Title() {
+      return ( 
+        <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+          Hello I'm a title
+        </h3>
+      )
+    }
+
+    const Button = () => (
       <button 
         style={{backgroundColor : "tomato",}} onClick={() => console.log("i'm clicked")}>Click me</button>
     );
 
-    const contatiner = React.createElement("div", null, [Title, Button])
-    rootInstance.render(contatiner);
+    const Contatiner = () => (
+      <div>
+        <Title />
+        <Button />
+      </div>
+    );
+    
+    rootInstance.render(<Contatiner />);
   </script>
 </html>
