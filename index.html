@@ -11,15 +11,18 @@
     const rootInstance = ReactDOM.createRoot(root);
 
     function App() {
-      const [counter, setCounter] = React.useState(0);
-      const onClick = () => {
-        // setCounter(counter + 1);
-        setCounter((current) => current + 1); // 위의 코드보다 아래코드가 더 안전함. 위의 코드를 사용할 경우 다른 곳에서 counter 값이 바뀌는걸 방지 할 수 없음.
-      }
+      const [minutes, setMinutes] = React.useState();
+      const onChange = (event) => {
+        setMinutes(event.target.value);
+      };
       return (
         <div>
-          <h3>Total clicks : {counter}</h3>
-          <button onClick={onClick}>Click me</button>
+          <h1>Super Converter</h1>
+          <label htmlFor="Minutes">Minutes</label>
+          <input value={minutes} id="Minutes" placeholder="Minutes" type="number" onChange={onChange} />
+          <h4>You want to convert {minutes}</h4>
+          <label htmlFor="Hours">Hours</label>
+          <input id="Hours" placeholder="Hours" type="number"/>
         </div>
       );
     };
