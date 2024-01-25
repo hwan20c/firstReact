@@ -13,7 +13,8 @@
     function App() {
       const [counter, setCounter] = React.useState(0);
       const onClick = () => {
-        setCounter(counter + 1)
+        // setCounter(counter + 1);
+        setCounter((current) => current + 1); // 위의 코드보다 아래코드가 더 안전함. 위의 코드를 사용할 경우 다른 곳에서 counter 값이 바뀌는걸 방지 할 수 없음.
       }
       return (
         <div>
@@ -22,6 +23,7 @@
         </div>
       );
     };
+
     rootInstance.render(<App />);
   </script>
 </html>
