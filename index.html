@@ -9,26 +9,16 @@
   <script type="text/babel">
     const root = document.getElementById("root")
     const rootInstance = ReactDOM.createRoot(root);
-    let counter = 0;
 
-    function countUp() {
-      counter = counter + 1;
-      render();
-    }
-
-    function render() {
-      rootInstance.render(<Contatiner />);
-    }
-
-    function Contatiner() {
+    function App() {
+      const [counter, modifier] = React.useState(0);
       return (
         <div>
           <h3>Total clicks : {counter}</h3>
-          <button onClick={countUp}>Click me</button>
+          <button>Click me</button>
         </div>
       );
     };
-    
-    render();
+    rootInstance.render(<App />);
   </script>
 </html>
