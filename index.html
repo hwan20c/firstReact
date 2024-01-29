@@ -11,12 +11,13 @@
     crossorigin
     src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
   ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.0/prop-types.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
     const rootInstance = ReactDOM.createRoot(root);
 
-    function Btn({ text, onClick }) {
+    function Btn({ text, onClick, fontSize = 16 }) {
       return (
         <button
           onClick={onClick}
@@ -26,6 +27,7 @@
             padding: "10px 20px",
             border: 0,
             borderRadius: 10,
+            fontSize: fontSize,
           }}
         >
           {text}
@@ -33,13 +35,17 @@
       );
     }
     const MemorizedBtn = React.memo(Btn); // memo를 사용하면 불필요한 렌더링을 막아준다.
+    Btn.propTypes = {
+      text: PropTypes.string.isRequired,
+      fontSize: PropTypes.number,
+    };
     function App() {
       const [value, setVelue] = React.useState("Save Changes");
       const changeValue = () => setVelue("Revert Changes");
       return (
         <div>
-          <Btn text={value} onClick={changeValue} />
-          <Btn text="Countinue" />
+          <Btn text={value} onClick={changeValue} fontSize={18} />
+          <Btn text={"Countinue"} />
         </div>
       );
     }
