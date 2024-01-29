@@ -16,9 +16,10 @@
     const root = document.getElementById("root");
     const rootInstance = ReactDOM.createRoot(root);
 
-    function Btn({ banana }) {
+    function Btn({ text, onClick }) {
       return (
         <button
+          onClick={onClick}
           style={{
             backgroundColor: "tomato",
             color: "white",
@@ -27,15 +28,18 @@
             borderRadius: 10,
           }}
         >
-          {banana}
+          {text}
         </button>
       );
     }
+    const MemorizedBtn = React.memo(Btn);
     function App() {
+      const [value, setVelue] = React.useState("Save Changes");
+      const changeValue = () => setVelue("Revert Changes");
       return (
         <div>
-          <Btn banana="Save Changes" />
-          <Btn banana="Countinue" />
+          <Btn text={value} onClick={changeValue} />
+          <Btn text="Countinue" />
         </div>
       );
     }
