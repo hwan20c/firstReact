@@ -32,7 +32,7 @@
         </button>
       );
     }
-    const MemorizedBtn = React.memo(Btn);
+    const MemorizedBtn = React.memo(Btn); // memo를 사용하면 불필요한 렌더링을 막아준다.
     function App() {
       const [value, setVelue] = React.useState("Save Changes");
       const changeValue = () => setVelue("Revert Changes");
