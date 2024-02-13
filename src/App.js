@@ -5,7 +5,11 @@ import Detail from "./routes/Detail";
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/movie",
+      path: "/hello",
+      element: <h1>hello</h1>,
+    },
+    {
+      path: "/movie/:id",
       element: <Detail />,
     },
     {
