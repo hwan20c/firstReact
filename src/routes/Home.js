@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Movie from "./components/Movies";
+import Movie from "../components/Movie";
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -16,7 +16,6 @@ function Home() {
   useEffect(() => {
     getMovies();
   }, []);
-  console.log(movies);
   return (
     <div>
       {loading ? (
